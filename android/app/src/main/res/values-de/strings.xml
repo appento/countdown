@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_widget_description">Ein simples Widget mit verbleibenden Tagen und Stunden.</string>
+    <string name="days">Tage</string>
+    <string name="hours">Stunden</string>
+    <string name="exampleEventText">bis zu meinem Geburtstag! :)</string>
+    <string name="openAppFirstHint">Öffne zuerst die App! :)</string>
+</resources>

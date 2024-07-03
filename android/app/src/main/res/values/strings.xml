@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_widget_description">A simple widget showing days and hours left until your event.</string>
+    <string name="days">days</string>
+    <string name="hours">hours</string>
+    <string name="exampleEventText">until my birthday! :)</string>
+    <string name="openAppFirstHint">First open the app! :)</string>
+</resources>

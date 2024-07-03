@@ -1,0 +1,108 @@
+name: countdown
+description: "A minimalistic countdown app to look forward to important events."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.1.3+7
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+
+  animated_flip_counter: 0.3.4
+  animated_digit: 3.2.3
+  datetime_picker_formfield_new: 2.1.0
+  shared_preferences: 2.2.3
+  flutter_riverpod: 2.5.1
+  flutter_colorpicker: 1.1.0
+  flutter_native_splash: ^2.4.0
+  home_widget: 0.6.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: 4.0.0
+  custom_lint: 0.6.4
+  riverpod_lint: 2.3.9
+  icons_launcher: 2.1.7
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # include material icons font
+  uses-material-design: true
+
+  assets:
+   - assets/
+
+  fonts:
+    - family: MightypeScript
+      fonts:
+        - asset: fonts/MightypeScript.otf
+    - family: AlojaLight
+      fonts:
+        - asset: fonts/Aloja-Light.otf
+    - family: SettaScript
+      fonts:
+        - asset: fonts/SettaScript.otf
+    - family: TheSecret
+      fonts:
+        - asset: fonts/TheSecret-Regular.otf
+    - family: Intuitive
+      fonts:
+        - asset: fonts/intuitive.ttf
+    - family: RujisHandwriting
+      fonts:
+        - asset: fonts/RujisHandwriting.otf
+
+# flutter pub get
+# dart run icons_launcher:create
+icons_launcher:
+  image_path: 'assets/icon.png'
+  platforms:
+    android:
+      enable: true
+      image_path: 'assets/icon.png'
+      adaptive_background_color: '#EF476F'
+      adaptive_foreground_image: 'assets/icon_foreground.png'
+
+# flutter pub get
+# dart run flutter_native_splash:create
+flutter_native_splash:
+  color: "#EF476F"
+  image: assets/icon.png
+  android: true
+  ios: true
+  web: false
+  android_12:
+    image: assets/icon.png
+    color: "#EF476F"
+
+flutter_intl:
+  enabled: true
+  main_locale: de
