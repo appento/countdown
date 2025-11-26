@@ -45,19 +45,20 @@ class BasicDaysLeftWidget : AppWidgetProvider() {
                     val timestamp = LocalDateTime.parse(timestampString, formatter)
                     val countUpMode = widgetData.getBoolean("countUpMode", false)
 
-                    // Calculate total hours difference and derive days/hours
-                    val totalHours: Long = if (countUpMode) {
+                    // Calculate total seconds difference (matching Flutter's Duration behavior)
+                    val totalSeconds: Long = if (countUpMode) {
                         // Count up: time since the event
-                        ChronoUnit.HOURS.between(timestamp, LocalDateTime.now())
+                        ChronoUnit.SECONDS.between(timestamp, LocalDateTime.now())
                     } else {
                         // Count down: time until the event
-                        ChronoUnit.HOURS.between(LocalDateTime.now(), timestamp)
+                        ChronoUnit.SECONDS.between(LocalDateTime.now(), timestamp)
                     }
 
                     // Use absolute values to handle both past and future dates
-                    val absHours = kotlin.math.abs(totalHours)
-                    val daysToShow = absHours / 24
-                    val hoursToShow = absHours % 24
+                    val absSeconds = kotlin.math.abs(totalSeconds)
+                    val totalHours = absSeconds / 3600
+                    val daysToShow = totalHours / 24
+                    val hoursToShow = totalHours % 24
 
                     // Set days and hours (always positive)
                     setTextViewText(R.id.daysLeftTextView, daysToShow.toString())
