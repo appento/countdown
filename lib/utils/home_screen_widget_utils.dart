@@ -15,13 +15,15 @@ Future<bool?> updateHomeScreenWidget() async {
 void storeDefaultHomeScreenValuesFirstTime(BuildContext context) async {
   String defaultSubtitle = S.of(context).defaultSubtext;
   // Set default values for the home screen widget if they don't exist
-  if ((await HomeWidget.getWidgetData('eventTimestamp', defaultValue: null)) ==
+  if ((await HomeWidget.getWidgetData<String>('eventTimestamp',
+          defaultValue: null)) ==
       null) {
     HomeWidget.saveWidgetData(
         'eventTimestamp', getDefaultEventTimestamp().toIso8601String());
     HomeWidget.saveWidgetData<String>('eventText', defaultSubtitle);
     HomeWidget.saveWidgetData<String>('eventColor',
-        '#${ColorConstants.brightPinkCrayola.value.toRadixString(16).padLeft(6, '0')}');
+        '#${ColorConstants.brightPinkCrayola.toARGB32().toRadixString(16).padLeft(6, '0')}');
+    HomeWidget.saveWidgetData<bool>('countUpMode', false);
     updateHomeScreenWidget();
   }
 }

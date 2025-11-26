@@ -18,8 +18,10 @@ class S {
   static S? _current;
 
   static S get current {
-    assert(_current != null,
-        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+    assert(
+      _current != null,
+      'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.',
+    );
     return _current!;
   }
 
@@ -41,8 +43,10 @@ class S {
 
   static S of(BuildContext context) {
     final instance = S.maybeOf(context);
-    assert(instance != null,
-        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
@@ -52,12 +56,7 @@ class S {
 
   /// `Fehler`
   String get error {
-    return Intl.message(
-      'Fehler',
-      name: 'error',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Fehler', name: 'error', desc: '', args: []);
   }
 
   /// `Schriftart des Textes`
@@ -72,82 +71,42 @@ class S {
 
   /// `Text`
   String get text {
-    return Intl.message(
-      'Text',
-      name: 'text',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Text', name: 'text', desc: '', args: []);
   }
 
   /// `Datum`
   String get date {
-    return Intl.message(
-      'Datum',
-      name: 'date',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Datum', name: 'date', desc: '', args: []);
   }
 
   /// `Einstellungen`
   String get settings {
-    return Intl.message(
-      'Einstellungen',
-      name: 'settings',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Einstellungen', name: 'settings', desc: '', args: []);
   }
 
   /// `Jahre`
   String get years {
-    return Intl.message(
-      'Jahre',
-      name: 'years',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Jahre', name: 'years', desc: '', args: []);
   }
 
   /// `Tage`
   String get days {
-    return Intl.message(
-      'Tage',
-      name: 'days',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Tage', name: 'days', desc: '', args: []);
   }
 
   /// `Stunden`
   String get hours {
-    return Intl.message(
-      'Stunden',
-      name: 'hours',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Stunden', name: 'hours', desc: '', args: []);
   }
 
   /// `Minuten`
   String get minutes {
-    return Intl.message(
-      'Minuten',
-      name: 'minutes',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Minuten', name: 'minutes', desc: '', args: []);
   }
 
   /// `Sekunden`
   String get seconds {
-    return Intl.message(
-      'Sekunden',
-      name: 'seconds',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Sekunden', name: 'seconds', desc: '', args: []);
   }
 
   /// `Hintergrundfarbe`
@@ -162,12 +121,7 @@ class S {
 
   /// `Fertig`
   String get done {
-    return Intl.message(
-      'Fertig',
-      name: 'done',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Fertig', name: 'done', desc: '', args: []);
   }
 
   /// `Made with 🥨 in Munich!`
@@ -182,17 +136,15 @@ class S {
 
   /// `Impressum`
   String get imprint {
-    return Intl.message(
-      'Impressum',
-      name: 'imprint',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Impressum', name: 'imprint', desc: '', args: []);
   }
 
   /// `Der Nutzung der in diesem Rahmen veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.\n\nAngaben gem. § 5 TMG:\n\n{contactAddress}\nE-Mail (bevorzugt): {contactEmail}\nTelefon: {contactPhone}`
   String imprintText(
-      Object contactAddress, Object contactEmail, Object contactPhone) {
+    Object contactAddress,
+    Object contactEmail,
+    Object contactPhone,
+  ) {
     return Intl.message(
       'Der Nutzung der in diesem Rahmen veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.\n\nAngaben gem. § 5 TMG:\n\n$contactAddress\nE-Mail (bevorzugt): $contactEmail\nTelefon: $contactPhone',
       name: 'imprintText',
@@ -203,32 +155,17 @@ class S {
 
   /// `Schwarz`
   String get black {
-    return Intl.message(
-      'Schwarz',
-      name: 'black',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Schwarz', name: 'black', desc: '', args: []);
   }
 
   /// `Weiß`
   String get white {
-    return Intl.message(
-      'Weiß',
-      name: 'white',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Weiß', name: 'white', desc: '', args: []);
   }
 
   /// `Textfarbe`
   String get fontColor {
-    return Intl.message(
-      'Textfarbe',
-      name: 'fontColor',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Textfarbe', name: 'fontColor', desc: '', args: []);
   }
 
   /// `Vielen Dank an die Künstler der kostenlosen Schriftarten (inkl. kommerzieller Nutzung):\n\nThe Secret by Vlad Cristea (X/Twitter: @theVladC)\n\nMightype Script by AF Studio (Instagram: @adamfathony)\n\nSetta Script by Ian Mikraz (Dribble: @ianmikraz)\n\nIntuitive by Bruno De Souza Leão (Facebook: @brunosouzaleao)\n\nRujis Handwriting by Ruji C. (X/Twitter: @ruji_says)\n\nAloja Light by Krisjanis Mezulis (Instagram: @krisjanismezulis)\n\nRoboto by Google Fonts\n\nHinweis: Diese App ist komplett kostenlos, werbefrei und nicht gewinnorientiert. Bitte kontaktiert uns bei Lizenz-Problemen! :)`
@@ -243,12 +180,7 @@ class S {
 
   /// `Credits`
   String get creditsLabel {
-    return Intl.message(
-      'Credits',
-      name: 'creditsLabel',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Credits', name: 'creditsLabel', desc: '', args: []);
   }
 
   /// `Verwendete OSS Bibliotheken <3`
@@ -301,6 +233,21 @@ class S {
     );
   }
 
+  /// `Hochzählen`
+  String get countUpMode {
+    return Intl.message('Hochzählen', name: 'countUpMode', desc: '', args: []);
+  }
+
+  /// `Zeige vergangene Tage seit dem Ereignis`
+  String get countUpModeDescription {
+    return Intl.message(
+      'Zeige vergangene Tage seit dem Ereignis',
+      name: 'countUpModeDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Datenschutz`
   String get privacyLinkLabel {
     return Intl.message(
@@ -313,7 +260,10 @@ class S {
 
   /// `### **I. Allgemeines**\n\nBei der Verwendung von Minimalist Countdown (nachfolgend auch "App") können personenbezogene Daten verarbeitet werden. Diese Datenschutzerklärung informiert über die genauen Umstände der Verarbeitung.\n\nLaut Art. 4 DSGVO sind personenbezogenene Daten Daten, die sich auf eine identifizierte oder identifizierbare natürliche Person beziehen. Als identifizierbar wird eine natürliche Person (im Folgenden "betroffene Person") angesehen, die direkt oder indirekt, insbesondere mittels Zuordnung zu einer Kennung wie einem Namen, zu einer Kennnummer, zu Standortdaten, zu einer Online-Kennung oder zu einem oder mehreren besonderen Merkmalen, die Ausdruck der physischen, physiologischen, genetischen, psychischen, wirtschaftlichen, kulturellen oder sozialen Identität dieser natürlichen Person sind, identifiziert werden kann.\n\n### **II. Welche personenbezogenen Daten fallen bei der Verwendung der App an?**\n\n- Die Ereignisdaten wie zum Beispiel das Ereignisdatum und der Ereignis-Subtext (Selbstverständlich handelt es sich bei diesen Daten nur um personenbezogene Daten, falls der Nutzer auch personenbezogene Daten, wie zum Beispiel das Datum eines Geburtstages angibt. Es steht den Nutzern frei, wie sie die App verwenden wollen und ob sie dabei personenbezogene Daten angeben.)\n\nDie eben genannten Daten werden ausschließlich lokal gespeichert.\nRechtsgrundlage ist berechtigtes Interesse gemäß Art. 6 Abs. 1 Buchst. f DSGVO.\nZweck der Verarbeitung ist die Ermöglichung der grundlegenden App-Funktionalitäten.\nDie Daten werden bis zu ihrer Änderung auf dem Gerät des Nutzers gespeichert. \nDie Daten können in der App allesamt frei geändert werden. Nutzer können die Daten selbst überschreiben und somit löschen.\nDa die Daten nur lokal auf dem Nutzergerät gespeichert sind, können sie auch über die Geräte-Einstellungen gelöscht werden, indem alle Daten der App gelöscht werden.\n\n### **III. Rechte der betroffenen Person**\n\n#### **Widerruf Ihrer Einwilligung zur Datenverarbeitung**\n\nNur mit Ihrer ausdrücklichen Einwilligung sind einige Vorgänge der Datenverarbeitung möglich. Ein Widerruf Ihrer bereits erteilten Einwilligung ist jederzeit möglich. Für den Widerruf genügt eine formlose Mitteilung per E-Mail. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.\n\n#### **Recht auf Beschwerde bei der zuständigen Aufsichtsbehörde**\n\nAls Betroffener steht Ihnen im Falle eines datenschutzrechtlichen Verstoßes ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu. Zuständige Aufsichtsbehörde bezüglich datenschutzrechtlicher Fragen ist der Landesdatenschutzbeauftragte des Bundeslandes, in dem sich der Sitz unseres Unternehmens befindet. Der folgende Link stellt eine Liste der Datenschutzbeauftragten sowie deren Kontaktdaten bereit:\n\nhttps://www.bfdi.bund.de/DE/Service/Anschriften/anschriften\_table.html\n\n#### **Recht auf Datenübertragbarkeit**\n\nIhnen steht das Recht zu, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an Dritte aushändigen zu lassen. Die Bereitstellung erfolgt in einem maschinenlesbaren Format. Sofern Sie die direkte Übertragung der Daten an einen anderen Verantwortlichen verlangen, erfolgt dies nur, soweit es technisch machbar ist.\n\n#### **Recht auf Auskunft, Berichtigung, Sperrung, Löschung**\n\nSie haben jederzeit im Rahmen der geltenden gesetzlichen Bestimmungen das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, Herkunft der Daten, deren Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Diesbezüglich und auch zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit über die im Impressum aufgeführten Kontaktmöglichkeiten an uns wenden.\n\n### **IV. Bennenung der verantwortlichen Stelle**\n\nDie verantwortliche Person für die Datenverarbeitung auf dieser Website ist: {contactAddress}\nE-Mail (bevorzugt): {contactEmail}\nTelefon: {contactPhone}\n\n### **V. Recht auf Vorbehalt**\n\nDer App-Betreiber behält sich vor, die Datenschutzerklärung im Rahmen der geltenden Datenschutzgesetze zu ändern und gegebenenfalls anzupassen.\n\nQuelle von Teilpassagen dieser Datenschutzerklärung: Datenschutz-Konfigurator von mein-datenschutzbeauftragter.de\n`
   String privacyText(
-      Object contactAddress, Object contactEmail, Object contactPhone) {
+    Object contactAddress,
+    Object contactEmail,
+    Object contactPhone,
+  ) {
     return Intl.message(
       '### **I. Allgemeines**\n\nBei der Verwendung von Minimalist Countdown (nachfolgend auch "App") können personenbezogene Daten verarbeitet werden. Diese Datenschutzerklärung informiert über die genauen Umstände der Verarbeitung.\n\nLaut Art. 4 DSGVO sind personenbezogenene Daten Daten, die sich auf eine identifizierte oder identifizierbare natürliche Person beziehen. Als identifizierbar wird eine natürliche Person (im Folgenden "betroffene Person") angesehen, die direkt oder indirekt, insbesondere mittels Zuordnung zu einer Kennung wie einem Namen, zu einer Kennnummer, zu Standortdaten, zu einer Online-Kennung oder zu einem oder mehreren besonderen Merkmalen, die Ausdruck der physischen, physiologischen, genetischen, psychischen, wirtschaftlichen, kulturellen oder sozialen Identität dieser natürlichen Person sind, identifiziert werden kann.\n\n### **II. Welche personenbezogenen Daten fallen bei der Verwendung der App an?**\n\n- Die Ereignisdaten wie zum Beispiel das Ereignisdatum und der Ereignis-Subtext (Selbstverständlich handelt es sich bei diesen Daten nur um personenbezogene Daten, falls der Nutzer auch personenbezogene Daten, wie zum Beispiel das Datum eines Geburtstages angibt. Es steht den Nutzern frei, wie sie die App verwenden wollen und ob sie dabei personenbezogene Daten angeben.)\n\nDie eben genannten Daten werden ausschließlich lokal gespeichert.\nRechtsgrundlage ist berechtigtes Interesse gemäß Art. 6 Abs. 1 Buchst. f DSGVO.\nZweck der Verarbeitung ist die Ermöglichung der grundlegenden App-Funktionalitäten.\nDie Daten werden bis zu ihrer Änderung auf dem Gerät des Nutzers gespeichert. \nDie Daten können in der App allesamt frei geändert werden. Nutzer können die Daten selbst überschreiben und somit löschen.\nDa die Daten nur lokal auf dem Nutzergerät gespeichert sind, können sie auch über die Geräte-Einstellungen gelöscht werden, indem alle Daten der App gelöscht werden.\n\n### **III. Rechte der betroffenen Person**\n\n#### **Widerruf Ihrer Einwilligung zur Datenverarbeitung**\n\nNur mit Ihrer ausdrücklichen Einwilligung sind einige Vorgänge der Datenverarbeitung möglich. Ein Widerruf Ihrer bereits erteilten Einwilligung ist jederzeit möglich. Für den Widerruf genügt eine formlose Mitteilung per E-Mail. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.\n\n#### **Recht auf Beschwerde bei der zuständigen Aufsichtsbehörde**\n\nAls Betroffener steht Ihnen im Falle eines datenschutzrechtlichen Verstoßes ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu. Zuständige Aufsichtsbehörde bezüglich datenschutzrechtlicher Fragen ist der Landesdatenschutzbeauftragte des Bundeslandes, in dem sich der Sitz unseres Unternehmens befindet. Der folgende Link stellt eine Liste der Datenschutzbeauftragten sowie deren Kontaktdaten bereit:\n\nhttps://www.bfdi.bund.de/DE/Service/Anschriften/anschriften\\_table.html\n\n#### **Recht auf Datenübertragbarkeit**\n\nIhnen steht das Recht zu, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an Dritte aushändigen zu lassen. Die Bereitstellung erfolgt in einem maschinenlesbaren Format. Sofern Sie die direkte Übertragung der Daten an einen anderen Verantwortlichen verlangen, erfolgt dies nur, soweit es technisch machbar ist.\n\n#### **Recht auf Auskunft, Berichtigung, Sperrung, Löschung**\n\nSie haben jederzeit im Rahmen der geltenden gesetzlichen Bestimmungen das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, Herkunft der Daten, deren Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Diesbezüglich und auch zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit über die im Impressum aufgeführten Kontaktmöglichkeiten an uns wenden.\n\n### **IV. Bennenung der verantwortlichen Stelle**\n\nDie verantwortliche Person für die Datenverarbeitung auf dieser Website ist: $contactAddress\nE-Mail (bevorzugt): $contactEmail\nTelefon: $contactPhone\n\n### **V. Recht auf Vorbehalt**\n\nDer App-Betreiber behält sich vor, die Datenschutzerklärung im Rahmen der geltenden Datenschutzgesetze zu ändern und gegebenenfalls anzupassen.\n\nQuelle von Teilpassagen dieser Datenschutzerklärung: Datenschutz-Konfigurator von mein-datenschutzbeauftragter.de\n',
       name: 'privacyText',

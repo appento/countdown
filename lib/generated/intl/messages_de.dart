@@ -31,9 +31,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "backgroundColor":
             MessageLookupByLibrary.simpleMessage("Hintergrundfarbe"),
         "black": MessageLookupByLibrary.simpleMessage("Schwarz"),
+        "countUpMode": MessageLookupByLibrary.simpleMessage("Hochzählen"),
+        "countUpModeDescription": MessageLookupByLibrary.simpleMessage(
+          "Zeige vergangene Tage seit dem Ereignis",
+        ),
         "creditsLabel": MessageLookupByLibrary.simpleMessage("Credits"),
         "creditsText": MessageLookupByLibrary.simpleMessage(
-            "Vielen Dank an die Künstler der kostenlosen Schriftarten (inkl. kommerzieller Nutzung):\n\nThe Secret by Vlad Cristea (X/Twitter: @theVladC)\n\nMightype Script by AF Studio (Instagram: @adamfathony)\n\nSetta Script by Ian Mikraz (Dribble: @ianmikraz)\n\nIntuitive by Bruno De Souza Leão (Facebook: @brunosouzaleao)\n\nRujis Handwriting by Ruji C. (X/Twitter: @ruji_says)\n\nAloja Light by Krisjanis Mezulis (Instagram: @krisjanismezulis)\n\nRoboto by Google Fonts\n\nHinweis: Diese App ist komplett kostenlos, werbefrei und nicht gewinnorientiert. Bitte kontaktiert uns bei Lizenz-Problemen! :)"),
+          "Vielen Dank an die Künstler der kostenlosen Schriftarten (inkl. kommerzieller Nutzung):\n\nThe Secret by Vlad Cristea (X/Twitter: @theVladC)\n\nMightype Script by AF Studio (Instagram: @adamfathony)\n\nSetta Script by Ian Mikraz (Dribble: @ianmikraz)\n\nIntuitive by Bruno De Souza Leão (Facebook: @brunosouzaleao)\n\nRujis Handwriting by Ruji C. (X/Twitter: @ruji_says)\n\nAloja Light by Krisjanis Mezulis (Instagram: @krisjanismezulis)\n\nRoboto by Google Fonts\n\nHinweis: Diese App ist komplett kostenlos, werbefrei und nicht gewinnorientiert. Bitte kontaktiert uns bei Lizenz-Problemen! :)",
+        ),
         "date": MessageLookupByLibrary.simpleMessage("Datum"),
         "days": MessageLookupByLibrary.simpleMessage("Tage"),
         "defaultSubtext": MessageLookupByLibrary.simpleMessage("bis Silvester"),
@@ -44,24 +49,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "howToUseDialogButton":
             MessageLookupByLibrary.simpleMessage("Alles klar!"),
         "howToUseDialogText": MessageLookupByLibrary.simpleMessage(
-            "Um in die Einstellungen zu kommen, halte entweder den Bildschirm gedrückt oder tippe doppelt. Viel Spaß! :)"),
+          "Um in die Einstellungen zu kommen, halte entweder den Bildschirm gedrückt oder tippe doppelt. Viel Spaß! :)",
+        ),
         "howToUseDialogTitle": MessageLookupByLibrary.simpleMessage(
-            "So kommst du in die Einstellungen"),
+          "So kommst du in die Einstellungen",
+        ),
         "imprint": MessageLookupByLibrary.simpleMessage("Impressum"),
         "imprintText": m0,
-        "madeWithBrezelInMunich":
-            MessageLookupByLibrary.simpleMessage("Made with 🥨 in Munich!"),
+        "madeWithBrezelInMunich": MessageLookupByLibrary.simpleMessage(
+          "Made with 🥨 in Munich!",
+        ),
         "minutes": MessageLookupByLibrary.simpleMessage("Minuten"),
         "privacyLinkLabel": MessageLookupByLibrary.simpleMessage("Datenschutz"),
         "privacyText": m1,
         "seconds": MessageLookupByLibrary.simpleMessage("Sekunden"),
         "settings": MessageLookupByLibrary.simpleMessage("Einstellungen"),
         "showOSSLibraries": MessageLookupByLibrary.simpleMessage(
-            "Verwendete OSS Bibliotheken <3"),
-        "subtextFontFamilyLabel":
-            MessageLookupByLibrary.simpleMessage("Schriftart des Textes"),
+          "Verwendete OSS Bibliotheken <3",
+        ),
+        "subtextFontFamilyLabel": MessageLookupByLibrary.simpleMessage(
+          "Schriftart des Textes",
+        ),
         "text": MessageLookupByLibrary.simpleMessage("Text"),
         "white": MessageLookupByLibrary.simpleMessage("Weiß"),
-        "years": MessageLookupByLibrary.simpleMessage("Jahre")
+        "years": MessageLookupByLibrary.simpleMessage("Jahre"),
       };
 }

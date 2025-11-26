@@ -161,3 +161,28 @@ class EventColorNotifier extends AsyncNotifier<Color> {
 final eventColorProvider = AsyncNotifierProvider<EventColorNotifier, Color>(() {
   return EventColorNotifier();
 });
+
+/// A notifier (provider) that reads and writes the count-up mode (reverse countdown) from/to shared preferences
+class CountUpModeNotifier extends AsyncNotifier<bool> {
+  @override
+  FutureOr<bool> build() async {
+    var sharedPrefs = await SharedPreferences.getInstance();
+    return sharedPrefs.getBool('countUpMode') ?? false;
+  }
+
+  set(bool value) async {
+    state = const AsyncValue.loading();
+    state = await AsyncValue.guard(() async {
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setBool('countUpMode', value);
+      HomeWidget.saveWidgetData<bool>('countUpMode', value);
+      updateHomeScreenWidget();
+      return value;
+    });
+  }
+}
+
+final countUpModeProvider =
+    AsyncNotifierProvider<CountUpModeNotifier, bool>(() {
+  return CountUpModeNotifier();
+});

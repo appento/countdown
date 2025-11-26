@@ -43,18 +43,25 @@ class BasicDaysLeftWidget : AppWidgetProvider() {
                     // if data is set, calculate and show the time left
                     val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS")
                     val timestamp = LocalDateTime.parse(timestampString, formatter)
+                    val countUpMode = widgetData.getBoolean("countUpMode", false)
 
-                    // Calculate and set days left
-                    var daysLeft: Long = ChronoUnit.DAYS.between(LocalDate.now(), timestamp)
-                    if (ChronoUnit.HOURS.between(LocalDateTime.now(), timestamp) > 0) {
-                        daysLeft--
+                    // Calculate total hours difference and derive days/hours
+                    val totalHours: Long = if (countUpMode) {
+                        // Count up: time since the event
+                        ChronoUnit.HOURS.between(timestamp, LocalDateTime.now())
+                    } else {
+                        // Count down: time until the event
+                        ChronoUnit.HOURS.between(LocalDateTime.now(), timestamp)
                     }
-                    setTextViewText(R.id.daysLeftTextView, daysLeft.toString())
 
-                    // Calculate and set hours left
-                    var hoursLeft: Long =
-                        ChronoUnit.HOURS.between(LocalDateTime.now(), timestamp) % 24
-                    setTextViewText(R.id.hoursLeftTextView, hoursLeft.toString())
+                    // Use absolute values to handle both past and future dates
+                    val absHours = kotlin.math.abs(totalHours)
+                    val daysToShow = absHours / 24
+                    val hoursToShow = absHours % 24
+
+                    // Set days and hours (always positive)
+                    setTextViewText(R.id.daysLeftTextView, daysToShow.toString())
+                    setTextViewText(R.id.hoursLeftTextView, hoursToShow.toString())
 
                     // Set event subtitle
                     setTextViewText(R.id.eventTextTextView, title ?: "")
