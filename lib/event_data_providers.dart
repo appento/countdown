@@ -9,172 +9,119 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'generated/l10n.dart';
 
-/**
- * The providers for reading and writing the event timestamp, event text, event text font, event text color, and event background color.
- * TODO: this should/could be refactored as there is a lot of code duplication. I already tried to create a generic provider but it didn't work so I took this shortcut for now.
- */
+/// Cached SharedPreferences instance
+Future<SharedPreferences> get _prefs => SharedPreferences.getInstance();
 
-/// A notifier (provider) that reads and writes the event timestamp from/to shared preferences
 class EventTimestampNotifier extends AsyncNotifier<DateTime> {
   @override
   FutureOr<DateTime> build() async {
-    var sharedPrefs = await SharedPreferences.getInstance();
-    var eventTimestamp = sharedPrefs.getString('eventTimestamp');
-    if (eventTimestamp != null) {
-      return DateTime.parse(eventTimestamp);
-    }
-    return getDefaultEventTimestamp();
+    final value = (await _prefs).getString('eventTimestamp');
+    return value != null ? DateTime.parse(value) : getDefaultEventTimestamp();
   }
 
-  set(DateTime? value) async {
+  Future<void> set(DateTime value) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      if (value != null) {
-        prefs.setString('eventTimestamp', value.toIso8601String());
-        HomeWidget.saveWidgetData<String>(
-            'eventTimestamp', value.toIso8601String());
-      } else {
-        prefs.remove('eventTimestamp');
-        HomeWidget.saveWidgetData('eventTimestamp', null);
-      }
+      (await _prefs).setString('eventTimestamp', value.toIso8601String());
+      HomeWidget.saveWidgetData<String>(
+          'eventTimestamp', value.toIso8601String());
       updateHomeScreenWidget();
-      return value ?? getDefaultEventTimestamp();
+      return value;
     });
   }
 }
 
 final eventTimestampProvider =
-    AsyncNotifierProvider<EventTimestampNotifier, DateTime>(() {
-  return EventTimestampNotifier();
-});
+    AsyncNotifierProvider<EventTimestampNotifier, DateTime>(
+        EventTimestampNotifier.new);
 
-/// A notifier (provider) that reads and writes the event text from/to shared preferences
 class EventTextNotifier extends AsyncNotifier<String> {
   @override
-  FutureOr<String> build() async {
-    var sharedPrefs = await SharedPreferences.getInstance();
-    var eventText = sharedPrefs.getString('eventText');
-    if (eventText != null) {
-      return eventText;
-    }
-    return S.current.defaultSubtext;
-  }
+  FutureOr<String> build() async =>
+      (await _prefs).getString('eventText') ?? S.current.defaultSubtext;
 
-  set(String? value) async {
+  Future<void> set(String value) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      prefs.setString('eventText', value ?? '');
-      HomeWidget.saveWidgetData<String>('eventText', value ?? '');
+      (await _prefs).setString('eventText', value);
+      HomeWidget.saveWidgetData<String>('eventText', value);
       updateHomeScreenWidget();
-
-      return value ?? '';
+      return value;
     });
   }
 }
 
-final eventTextProvider = AsyncNotifierProvider<EventTextNotifier, String>(() {
-  return EventTextNotifier();
-});
+final eventTextProvider =
+    AsyncNotifierProvider<EventTextNotifier, String>(EventTextNotifier.new);
 
-/// A notifier (provider) that reads and writes the event font from/to shared preferences
 class EventTextFontNotifier extends AsyncNotifier<String> {
   @override
-  FutureOr<String> build() async {
-    var sharedPrefs = await SharedPreferences.getInstance();
-    var eventText = sharedPrefs.getString('eventTextFont');
-    if (eventText != null) {
-      return eventText;
-    }
-    return 'TheSecret';
-  }
+  FutureOr<String> build() async =>
+      (await _prefs).getString('eventTextFont') ?? 'TheSecret';
 
-  set(String? value) async {
+  Future<void> set(String value) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      String storedValue = value ?? '';
-      prefs.setString('eventTextFont', storedValue);
-      return storedValue;
+      (await _prefs).setString('eventTextFont', value);
+      return value;
     });
   }
 }
 
 final eventTextFontProvider =
-    AsyncNotifierProvider<EventTextFontNotifier, String>(() {
-  return EventTextFontNotifier();
-});
+    AsyncNotifierProvider<EventTextFontNotifier, String>(
+        EventTextFontNotifier.new);
 
-/// A notifier (provider) that reads and writes the event text color from/to shared preferences
 class TextColorNotifier extends AsyncNotifier<Color> {
+  static const _default = Colors.white;
+
   @override
-  FutureOr<Color> build() async {
-    var sharedPrefs = await SharedPreferences.getInstance();
-    return Color(sharedPrefs.getInt('textColor') ?? getDefaultValue());
-  }
+  FutureOr<Color> build() async =>
+      Color((await _prefs).getInt('textColor') ?? _default.toARGB32());
 
-  getDefaultValue() {
-    return Colors.white.value;
-  }
-
-  set(Color? value) async {
+  Future<void> set(Color value) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      prefs.setInt('textColor', value?.value ?? getDefaultValue());
-      return value ?? Color(getDefaultValue());
+      (await _prefs).setInt('textColor', value.toARGB32());
+      return value;
     });
   }
 }
 
-final textColorProvider = AsyncNotifierProvider<TextColorNotifier, Color>(() {
-  return TextColorNotifier();
-});
+final textColorProvider =
+    AsyncNotifierProvider<TextColorNotifier, Color>(TextColorNotifier.new);
 
-/// A notifier (provider) that reads and writes the event background color from/to shared preferences
 class EventColorNotifier extends AsyncNotifier<Color> {
+  static const _default = ColorConstants.brightPinkCrayola;
+
   @override
-  FutureOr<Color> build() async {
-    var sharedPrefs = await SharedPreferences.getInstance();
-    return Color(sharedPrefs.getInt('eventColor') ?? getDefaultValue());
-  }
+  FutureOr<Color> build() async =>
+      Color((await _prefs).getInt('eventColor') ?? _default.toARGB32());
 
-  getDefaultValue() {
-    return ColorConstants.brightPinkCrayola.value;
-  }
-
-  set(Color? value) async {
+  Future<void> set(Color value) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      int storedValue = value?.value ?? getDefaultValue();
-      prefs.setInt('eventColor', storedValue);
-      HomeWidget.saveWidgetData<String>(
-          'eventColor', '#${storedValue.toRadixString(16).padLeft(6, '0')}');
+      (await _prefs).setInt('eventColor', value.toARGB32());
+      HomeWidget.saveWidgetData<String>('eventColor',
+          '#${value.toARGB32().toRadixString(16).padLeft(6, '0')}');
       updateHomeScreenWidget();
-      return value ?? Color(getDefaultValue());
+      return value;
     });
   }
 }
 
-final eventColorProvider = AsyncNotifierProvider<EventColorNotifier, Color>(() {
-  return EventColorNotifier();
-});
+final eventColorProvider =
+    AsyncNotifierProvider<EventColorNotifier, Color>(EventColorNotifier.new);
 
-/// A notifier (provider) that reads and writes the count-up mode (reverse countdown) from/to shared preferences
 class CountUpModeNotifier extends AsyncNotifier<bool> {
   @override
-  FutureOr<bool> build() async {
-    var sharedPrefs = await SharedPreferences.getInstance();
-    return sharedPrefs.getBool('countUpMode') ?? false;
-  }
+  FutureOr<bool> build() async =>
+      (await _prefs).getBool('countUpMode') ?? false;
 
-  set(bool value) async {
+  Future<void> set(bool value) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      prefs.setBool('countUpMode', value);
+      (await _prefs).setBool('countUpMode', value);
       HomeWidget.saveWidgetData<bool>('countUpMode', value);
       updateHomeScreenWidget();
       return value;
@@ -183,6 +130,4 @@ class CountUpModeNotifier extends AsyncNotifier<bool> {
 }
 
 final countUpModeProvider =
-    AsyncNotifierProvider<CountUpModeNotifier, bool>(() {
-  return CountUpModeNotifier();
-});
+    AsyncNotifierProvider<CountUpModeNotifier, bool>(CountUpModeNotifier.new);

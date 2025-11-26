@@ -25,6 +25,7 @@ class EventDateListTile extends ConsumerWidget {
           format: _dateFormat,
           resetIcon: null,
           onChanged: (DateTime? value) {
+            if (value == null) return;
             ref.read(eventTimestampProvider.notifier).set(value);
           },
           onShowPicker: (context, currentValue) async {
