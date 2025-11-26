@@ -32,8 +32,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   @override
   void initState() {
-    showHowToUseDialogOnlyFirstTime(context);
-    storeDefaultHomeScreenValuesFirstTime(context);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      showHowToUseDialogOnlyFirstTime(context);
+      storeDefaultHomeScreenValuesFirstTime(context);
+    });
     super.initState();
   }
 
@@ -69,6 +71,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     var eventColor =
         ref.watch(eventColorProvider).value ?? ColorConstants.brightPinkCrayola;
     var eventTextFont = ref.watch(eventTextFontProvider).value;
+    var isCountUp = ref.watch(countUpModeProvider).value ?? false;
 
     return Scaffold(
       backgroundColor: eventColor,
@@ -101,6 +104,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                 data: (eventTimestamp) => TimeColumn(
                                       eventTimestamp: eventTimestamp,
                                       now: DateTime.now(),
+                                      isCountUp: isCountUp,
                                     ),
                                 error: (object, stacktrace) =>
                                     Text(S.of(context).error),

@@ -30,37 +30,48 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "backgroundColor": MessageLookupByLibrary.simpleMessage("Color"),
         "black": MessageLookupByLibrary.simpleMessage("Black"),
+        "countUpMode": MessageLookupByLibrary.simpleMessage("Count up mode"),
+        "countUpModeDescription": MessageLookupByLibrary.simpleMessage(
+          "Show days passed since, instead of days until",
+        ),
         "creditsLabel": MessageLookupByLibrary.simpleMessage("Credits"),
         "creditsText": MessageLookupByLibrary.simpleMessage(
-            "Many thanks to the artists of the free fonts (incl. commercial use):\n\nThe Secret by Vlad Cristea (X/Twitter: @theVladC)\n\nMightype Script by AF Studio (Instagram: @adamfathony)\n\nSetta Script by Ian Mikraz (Dribble: @ianmikraz)\n\nIntuitive by Bruno De Souza Leão (Facebook: @brunosouzaleao)\n\nRuji\'s Handwriting by Ruji C. (X/Twitter: @ruji_says)\n\nAloja Light by Krisjanis Mezulis (Instagram: @krisjanismezulis)\n\nRoboto by Google Fonts\n\nNote: This app is completely free, ad-free and non-profit. Please contact us if there are any license issues! :)"),
+          "Many thanks to the artists of the free fonts (incl. commercial use):\n\nThe Secret by Vlad Cristea (X/Twitter: @theVladC)\n\nMightype Script by AF Studio (Instagram: @adamfathony)\n\nSetta Script by Ian Mikraz (Dribble: @ianmikraz)\n\nIntuitive by Bruno De Souza Leão (Facebook: @brunosouzaleao)\n\nRuji\'s Handwriting by Ruji C. (X/Twitter: @ruji_says)\n\nAloja Light by Krisjanis Mezulis (Instagram: @krisjanismezulis)\n\nRoboto by Google Fonts\n\nNote: This app is completely free, ad-free and non-profit. Please contact us if there are any license issues! :)",
+        ),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "days": MessageLookupByLibrary.simpleMessage("Days"),
-        "defaultSubtext":
-            MessageLookupByLibrary.simpleMessage("until New Year\'s Eve!"),
+        "defaultSubtext": MessageLookupByLibrary.simpleMessage(
+          "until New Year\'s Eve!",
+        ),
         "done": MessageLookupByLibrary.simpleMessage("Done"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
         "fontColor": MessageLookupByLibrary.simpleMessage("Font Color"),
         "hours": MessageLookupByLibrary.simpleMessage("Hours"),
         "howToUseDialogButton": MessageLookupByLibrary.simpleMessage("Got it!"),
         "howToUseDialogText": MessageLookupByLibrary.simpleMessage(
-            "To access the settings, either long press on the screen or double tap. Have fun! :)"),
-        "howToUseDialogTitle":
-            MessageLookupByLibrary.simpleMessage("How to access the settings"),
+          "To access the settings, either long press on the screen or double tap. Have fun! :)",
+        ),
+        "howToUseDialogTitle": MessageLookupByLibrary.simpleMessage(
+          "How to access the settings",
+        ),
         "imprint": MessageLookupByLibrary.simpleMessage("Imprint"),
         "imprintText": m0,
-        "madeWithBrezelInMunich":
-            MessageLookupByLibrary.simpleMessage("Made with 🥨 in Munich!"),
+        "madeWithBrezelInMunich": MessageLookupByLibrary.simpleMessage(
+          "Made with 🥨 in Munich!",
+        ),
         "minutes": MessageLookupByLibrary.simpleMessage("Minutes"),
         "privacyLinkLabel": MessageLookupByLibrary.simpleMessage("Privacy"),
         "privacyText": m1,
         "seconds": MessageLookupByLibrary.simpleMessage("Seconds"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
-        "showOSSLibraries":
-            MessageLookupByLibrary.simpleMessage("Used OSS Libraries <3"),
-        "subtextFontFamilyLabel":
-            MessageLookupByLibrary.simpleMessage("Subtext Font Family"),
+        "showOSSLibraries": MessageLookupByLibrary.simpleMessage(
+          "Used OSS Libraries <3",
+        ),
+        "subtextFontFamilyLabel": MessageLookupByLibrary.simpleMessage(
+          "Subtext Font Family",
+        ),
         "text": MessageLookupByLibrary.simpleMessage("Subtext"),
         "white": MessageLookupByLibrary.simpleMessage("White"),
-        "years": MessageLookupByLibrary.simpleMessage("Years")
+        "years": MessageLookupByLibrary.simpleMessage("Years"),
       };
 }

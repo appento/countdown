@@ -16,4 +16,3 @@ Your-Street 1
 12345 Your-City''';
 String privacyContactEmail = 'changeme@example.com';
 String privacyContactPhone = '+49 123 4567890CHANGEME';
-

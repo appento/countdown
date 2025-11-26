@@ -36,6 +36,17 @@ class SettingsScreen extends ConsumerWidget {
                   child: Column(
                     children: [
                       EventDateListTile(eventDateFormat),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20.0),
+                        child: SwitchListTile(
+                          title: Text(S.of(context).countUpMode),
+                          subtitle: Text(S.of(context).countUpModeDescription),
+                          value: ref.watch(countUpModeProvider).value ?? false,
+                          onChanged: (value) {
+                            ref.read(countUpModeProvider.notifier).set(value);
+                          },
+                        ),
+                      ),
                       const Padding(
                           padding: EdgeInsets.only(top: 20.0),
                           child: EventTextListTile()),

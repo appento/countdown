@@ -5,22 +5,24 @@ import '../../generated/l10n.dart';
 
 class TimeColumn extends StatelessWidget {
   const TimeColumn(
-      {super.key, required this.eventTimestamp, required this.now});
+      {super.key,
+      required this.eventTimestamp,
+      required this.now,
+      this.isCountUp = false});
 
   final DateTime eventTimestamp;
   final DateTime now;
+  final bool isCountUp;
 
   @override
   Widget build(BuildContext context) {
     const double elementHeight = 143; // determined with flutter inspector
     const double shiftHeight = elementHeight * 0.85;
 
-    Duration difference = eventTimestamp.difference(now);
-
-    if(difference.isNegative) {
-      // difference = now.difference(eventTimestamp); // uncomment this line to show the time since the event
-      difference = Duration.zero;
-    }
+    final diff = isCountUp
+        ? now.difference(eventTimestamp)
+        : eventTimestamp.difference(now);
+    final Duration difference = diff.isNegative ? Duration.zero : diff;
 
     bool showYears = difference.inDays > 365;
     int years = showYears ? difference.inDays ~/ 365 : 0;
