@@ -24,6 +24,7 @@ class EventFontListTile extends ConsumerWidget {
             borderRadius: const BorderRadius.all(Radius.circular(20)),
             value: eventTextFont,
             onChanged: (String? font) {
+              if (font == null) return;
               ref.read(eventTextFontProvider.notifier).set(font);
             },
             items: [
