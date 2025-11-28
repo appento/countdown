@@ -54,9 +54,8 @@ class BasicDaysLeftWidget : AppWidgetProvider() {
                         ChronoUnit.SECONDS.between(LocalDateTime.now(), timestamp)
                     }
 
-                    // Use absolute values to handle both past and future dates
-                    val absSeconds = kotlin.math.abs(totalSeconds)
-                    val totalHours = absSeconds / 3600
+                    // Show 0 if countdown done or countup in future
+                    val totalHours = if (totalSeconds < 0) 0 else totalSeconds / 3600
                     val daysToShow = totalHours / 24
                     val hoursToShow = totalHours % 24
 
